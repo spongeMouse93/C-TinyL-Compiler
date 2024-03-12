@@ -131,7 +131,7 @@ static void read() {
 }
 
 static void print() {
-  if (token == '!') {
+  if (token == '%') {
     nextToken();
     if (isIdentifier(token) == 1) {
       codeGen(WRITE, token, EMPTY_FIELD, EMPTY_FIELD);
@@ -154,7 +154,7 @@ static void stmt() {
     read();
     nextToken();
     break;
-  case '!':
+  case '%':
     print();
     break;
   }
@@ -176,7 +176,7 @@ static void program() {
   /* YOUR CODE GOES HERE */
   stmtList();
   expr();
-  if (token != '.') {
+  if (token != '!') {
     ERROR("Program error.  Current input symbol is %c\n", token);
     exit(EXIT_FAILURE);
   }
@@ -211,7 +211,7 @@ static inline void nextToken() {
     ERROR("End of program input\n");
     exit(EXIT_FAILURE);
   }
-  if (*buffer == '.')
+  if (*buffer == '!')
     printf(".\n");
 }
 
