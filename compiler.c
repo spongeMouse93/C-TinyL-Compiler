@@ -85,6 +85,20 @@ static int expr() {
     reg = nextReg();
     codeGen(MUL, reg, left_reg, right_reg);
     return reg;
+  case '&':
+    nextToken();
+    left_reg = expr();
+    right_reg = expr();
+    reg = nextReg();
+    codeGen(AND, reg, left_reg, right_reg);
+    return reg;
+  case '|':
+    nextToken();
+    left_reg = expr();
+    right_reg = expr();
+    reg = nextReg();
+    codeGen(OR, reg, left_reg, right_reg);
+    return reg;
   case 'a':
   case 'b':
   case 'c':
