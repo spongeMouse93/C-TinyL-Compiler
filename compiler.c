@@ -245,7 +245,7 @@ static inline int toDigit(char c) {
 }
 
 static inline int isIdentifier(char c) {
-  if (c >= 'a' && c <= 'e')
+  if (c >= 'a' && c <= 'f')
     return 1;
   return 0;
 }
