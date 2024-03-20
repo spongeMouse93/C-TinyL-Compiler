@@ -28,8 +28,6 @@ int main(int argc, char *argv[]) {
   while (instr) {
     switch (instr->code) {
     case LOAD:
-      /* based on ASCII representation */
-      /* of variable names */
       registerFile[instr->field1] = memory[instr->field2 - 'a'];
       break;
     case LOADI:
@@ -39,16 +37,13 @@ int main(int argc, char *argv[]) {
       memory[instr->field1 - 'a'] = registerFile[instr->field2];
       break;
     case ADD:
-      registerFile[instr->field1] =
-          registerFile[instr->field2] + registerFile[instr->field3];
+      registerFile[instr->field1] = registerFile[instr->field2] + registerFile[instr->field3];
       break;
     case SUB:
-      registerFile[instr->field1] =
-          registerFile[instr->field2] - registerFile[instr->field3];
+      registerFile[instr->field1] = registerFile[instr->field2] - registerFile[instr->field3];
       break;
     case MUL:
-      registerFile[instr->field1] =
-          registerFile[instr->field2] * registerFile[instr->field3];
+      registerFile[instr->field1] = registerFile[instr->field2] * registerFile[instr->field3];
       break;
     case AND:
       registerFile[instr->field1] = registerFile[instr->field2] & registerFile[instr->field3];
@@ -71,6 +66,5 @@ int main(int argc, char *argv[]) {
     instr = instr->next;
   }
   destroyInstructionList(head);
-  // printf("Executedhhhhhh %d instructions\n", 0);
   return EXIT_SUCCESS;
 }
