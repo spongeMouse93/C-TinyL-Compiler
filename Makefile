@@ -2,20 +2,20 @@ CCFLAGS = #-ggdb -Wall
 
 all: compile run
 
-compile: Compiler.c InstrUtils.c InstrUtils.h Utils.c Utils.h
-	gcc $(CCFLAGS) Compiler.c InstrUtils.c Utils.c -o compile
+compile: compiler.c instrUtils.c instrUtils.h utils.c utils.h
+	gcc $(CCFLAGS) compiler.c instrUtils.c utils.c -o compile
 
-run: Interpreter.c InstrUtils.c InstrUtils.h Utils.c Utils.h
-	gcc $(CCFLAGS) Interpreter.c InstrUtils.c Utils.c Utils.h -o run
+run: interpreter.c instrUtils.c instrUtils.h utils.c utils.h
+	gcc $(CCFLAGS) interpreter.c instrUtils.c utils.c utils.h -o run
 
 # this will reformat your code according to the linux guidelines.
 # be careful when using this command!
-pretty: Compiler.c InstrUtils.c InstrUtils.h Utils.c Utils.h
-	indent -linux Compiler.c
-	indent -linux Instr.h
-	indent -linux InstrUtils.c InstrUtils.h
-	indent -linux Utils.c Utils.h
-	indent -linux Interpreter.c
+pretty: compiler.c instrUtils.c instrUtils.h utils.c utils.h
+	indent -linux compiler.c
+	indent -linux instr.h
+	indent -linux instrUtils.c instrUtils.h
+	indent -linux utils.c utils.h
+	indent -linux interpreter.c
 
 clean:
 	rm -rf compile run tinyL.out
