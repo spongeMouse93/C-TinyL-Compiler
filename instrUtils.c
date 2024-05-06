@@ -49,8 +49,6 @@ void printInstruction(FILE *outFile, instruction *instr) {
 }
 
 void printInstructionList(FILE *outFile, instruction *instr) {
-  /* YOUR CODE GOES HERE */
-  /* TO STUDENTS - BEGIN */
   if (!outFile) {
     ERROR("File error\n");
     exit(EXIT_FAILURE);
@@ -63,7 +61,6 @@ void printInstructionList(FILE *outFile, instruction *instr) {
     printInstruction(outFile, instr);
     instr = instr->next;
   }
-  /* TO STUDENTS - END */
 }
 
 instruction *readInstruction(FILE *inFile) {
