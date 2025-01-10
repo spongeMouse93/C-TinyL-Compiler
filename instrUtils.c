@@ -85,91 +85,68 @@ instruction *readInstruction(FILE *inFile) {
   }
   if (!strcmp(instrBuffer, "LOAD")) {
     instr->code = LOAD;
-    /* get first operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: variable */
     fscanf(inFile, "%s", instrBuffer);
     instr->field2 = *instrBuffer;
   } else if (!strcmp(instrBuffer, "LOADI")) {
     instr->code = LOADI;
-    /* get first operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: immediate */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
   } else if (!strcmp(instrBuffer, "STORE")) {
     instr->code = STORE;
-    /* get first operand: variable */
     fscanf(inFile, "%s", instrBuffer);
     instr->field1 = *instrBuffer;
-    /* get second operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
   } else if (!strcmp(instrBuffer, "ADD")) {
     instr->code = ADD;
-    /* get first operand: target register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
-    /* get third operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field3));
   } else if (!strcmp(instrBuffer, "SUB")) {
     instr->code = SUB;
-    /* get first operand: target register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
-    /* get third operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field3));
   } else if (!strcmp(instrBuffer, "MUL")) {
     instr->code = MUL;
-    /* get first operand: target register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
-    /* get third operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field3));
   } else if (!strcmp(instrBuffer, "AND")) {
     instr->code = AND;
-    /* get first operand: target register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
-    /* get third operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field3));
   } else if (!strcmp(instrBuffer, "OR")) {
     instr->code = OR;
-    /* get first operand: target register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field1));
-    /* get second operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field2));
-    /* get third operand: register */
     fscanf(inFile, "%s", instrBuffer);
     sscanf(instrBuffer, "%c%d", &dummy, &(instr->field3));
   } else if (!strcmp(instrBuffer, "READ")) {
     instr->code = READ;
-    /* get operand: variable */
     fscanf(inFile, "%s", instrBuffer);
     instr->field1 = *instrBuffer;
   } else if (!strcmp(instrBuffer, "WRITE")) {
     instr->code = WRITE;
-    /* get operand: variable */
     fscanf(inFile, "%s", instrBuffer);
     instr->field1 = *instrBuffer;
   } else {
