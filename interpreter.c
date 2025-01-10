@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
   instruction *head, *instr;
   int memory[6];
   int registerFile[MAX_REG_NUM];
-  int input, instrCounter = 0; /* counts number of executed instructions */
+  int input, instrCounter = 0; 
   if (argc != 2) {
     fprintf(stderr, "Use of command:\n  run <RISC code file>\n");
     exit(EXIT_FAILURE);
