@@ -9,12 +9,10 @@
 #define EMPTY_FIELD 0xFFFFF
 #define token *buffer
 
-/* GLOBALS */
-static char *buffer = NULL;  /* read buffer */
-static int regnum = 1;       /* for next free virtual register number */
-static FILE *outFile = NULL; /* output of code generation */
+static char *buffer = NULL;  
+static int regnum = 1;       
+static FILE *outFile = NULL; 
 
-/* Utilities */
 static void codeGen(opCode opcode, int field1, int field2, int field3);
 static inline void nextToken();
 static inline int nextReg();
@@ -23,7 +21,6 @@ static inline int toDigit(char c);
 static inline int isIdentifier(char c);
 static char *readInput(FILE *f);
 
-/* Routines for recursive descending parser LL(1) */
 static void program();
 static void stmtList();
 static void morestmts();
@@ -35,9 +32,6 @@ static int expr();
 static int variable();
 static int digit();
 
-/*************************************************************************/
-/* Definitions for recursive descending parser LL(1)                     */
-/*************************************************************************/
 static int digit() {
   int reg;
   if (!isDigit(token)) {
@@ -196,9 +190,6 @@ static void program() {
   }
 }
 
-/*************************************************************************/
-/* Utility definitions                                                   */
-/*************************************************************************/
 static void codeGen(opCode opcode, int field1, int field2, int field3) {
   instruction instr;
   if (!outFile) {
@@ -276,10 +267,6 @@ static char *readInput(FILE *f) {
   }
   return b;
 }
-
-/*************************************************************************/
-/* Main function                                                         */
-/*************************************************************************/
 
 int main(int argc, char *argv[]) {
   const char *outfilename = "tinyL.out";
